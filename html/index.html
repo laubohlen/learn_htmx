@@ -55,6 +55,17 @@
             .navitems > li > a {
                 @apply flex h-12 items-center gap-2 rounded-md p-4 hover:bg-gray-700;
             }
+            .card {
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                position: relative;
+                border-radius: 0.4rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                margin-bottom: 2rem;
+                background-color: white;
+                padding-bottom: 0rem;
+            }
         </style>
     </head>
     <body>
@@ -101,5 +112,49 @@
                 <a class="button" href="">Upload Images</a>
             </div>
         </hero>
+
+        <contet class="mx-auto mt-6 grid max-w-7xl grid-cols-4">
+            <main class="col-span-3 mx-[10%]">
+                <article class="card">
+                    <figure>
+                        <a href=""
+                            ><img
+                                class="w-full"
+                                src="../media/fumin_V15L_21_06_29_095909.jpeg"
+                                alt="funny ibex"
+                        /></a>
+                    </figure>
+                    <div class="p-2 px-4">
+                        <h2 class="mb-1 w-[60%] truncate text-sm text-gray-800">
+                            File_name
+                        </h2>
+                        <div
+                            class="mb-1 flex items-center gap-2 text-sm text-gray-800"
+                        >
+                            <a
+                                class="rounded-full bg-gray-400 px-3 py-1 hover:bg-gray-600 hover:text-white"
+                                href=""
+                                >ID: Fumin
+                            </a>
+                            <div class="flex items-center gap-1">
+                                <img
+                                    class="w-5"
+                                    src="https://img.icons8.com/ios/50/marker--v1.png"
+                                    alt="marker--v1"
+                                />
+                                Unknown
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 text-sm text-gray-800 [&>a:hover]:underline"
+                        >
+                            <a href="">Chip</a>
+                            <a href="">Landmarks</a>
+                        </div>
+                    </div>
+                </article>
+            </main>
+            <aside class="col-span-1 mr-[20%] bg-red-400">Sidebar</aside>
+        </contet>
     </body>
 </html>
