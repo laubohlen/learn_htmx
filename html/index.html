@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -7,20 +7,26 @@
         <title>Wibex</title>
         <style type="text/tailwindcss">
             .navitems > li > a {
-                @apply h-12 p-4 hover:bg-gray-700 rounded-md flex items-center gap-2;
+                @apply flex h-12 items-center gap-2 rounded-md p-4 hover:bg-gray-700;
             }
         </style>
     </head>
     <body>
-        <header class="flex items-center justify-between px-8 bg-gray-800 h-20 text-white sticky top-0 z-50">
+        <header
+            class="sticky top-0 z-50 flex h-20 items-center justify-between bg-gray-800 px-8 text-white"
+        >
             <logo>
                 <a class="flex items-center gap-2" href="">
-                    <img class="h-10" src="https://img.icons8.com/emoji/48/goat-emoji.png" alt="goat-emoji" />
+                    <img
+                        class="h-10"
+                        src="https://img.icons8.com/emoji/48/goat-emoji.png"
+                        alt="goat-emoji"
+                    />
                     <span>Wibex</span>
                 </a>
             </logo>
             <nav>
-                <ul class="flex items-center navitems">
+                <ul class="navitems flex items-center">
                     <li><a href="">Home</a></li>
                     <li>
                         <a href=""
