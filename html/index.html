@@ -4,8 +4,54 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+            rel="stylesheet"
+        />
         <title>Wibex</title>
+        <link
+            rel="shortcut icon"
+            type="image/png"
+            href="https://img.icons8.com/emoji/48/goat-emoji.png"
+        />
         <style type="text/tailwindcss">
+            :root {
+                --primary: rgb(88, 40, 244);
+                --primary-hover: rgb(69, 29, 200);
+            }
+            h1 {
+                font-size: 2rem;
+                line-height: 1;
+                font-weight: bold;
+                margin-bottom: 1.2rem;
+                font-family: "Inter";
+            }
+            .button {
+                display: inline-flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                text-align: center;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                padding: 0 1rem;
+                min-height: 3.3rem;
+                font-weight: 600;
+                box-shadow: 0 4px 3px rgba(0, 0, 0, 0.1);
+                transition-property: transform;
+                transition-duration: 0.2s;
+                color: white;
+                background-color: var(--primary);
+            }
+            .button:hover {
+                background-color: var(--primary-hover);
+            }
+            .button:active {
+                transform: scale(0.95);
+            }
             .navitems > li > a {
                 @apply flex h-12 items-center gap-2 rounded-md p-4 hover:bg-gray-700;
             }
@@ -41,5 +87,19 @@
                 </ul>
             </nav>
         </header>
+        <hero
+            class="grid bg-gray-700 bg-[url('../media/fumin_V15L_21_06_29_095835.jpeg')] bg-cover bg-bottom text-center text-white"
+        >
+            <div
+                class="col-start-1 row-start-1 h-full w-full bg-gray-800 bg-opacity-40"
+            ></div>
+            <div class="col-start-1 row-start-1 px-10 py-20">
+                <h1>Ibex Index</h1>
+                <p class="mb-5 text-lg font-bold">
+                    Ibex Photo-Reidentification
+                </p>
+                <a class="button" href="">Upload Images</a>
+            </div>
+        </hero>
     </body>
 </html>
