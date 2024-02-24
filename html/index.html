@@ -4,6 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -17,6 +21,9 @@
             href="https://img.icons8.com/emoji/48/goat-emoji.png"
         />
         <style type="text/tailwindcss">
+            [x-cloak] {
+                display: none !important;
+            }
             :root {
                 --primary: rgb(88, 40, 244);
                 --primary-hover: rgb(69, 29, 200);
@@ -26,6 +33,13 @@
                 line-height: 1;
                 font-weight: bold;
                 margin-bottom: 1.2rem;
+                font-family: "Inter";
+            }
+            h2 {
+                font-size: 1.5rem;
+                line-height: 1;
+                font-weight: bold;
+                margin-bottom: 0.75rem;
                 font-family: "Inter";
             }
             .button {
@@ -66,6 +80,12 @@
                 background-color: white;
                 padding-bottom: 0rem;
             }
+            .hoverlist > * {
+                @apply rounded-md transition duration-150 hover:bg-gray-100;
+            }
+            .hoverlist > * > a {
+                @apply flex items-center p-2;
+            }
         </style>
     </head>
     <body>
@@ -85,15 +105,32 @@
             <nav>
                 <ul class="navitems flex items-center">
                     <li><a href="">Home</a></li>
-                    <li>
-                        <a href=""
+                    <li x-data="{ dropdownOpen: false }" class="relative">
+                        <a
+                            @click="dropdownOpen = !dropdownOpen"
+                            @click.away="dropdownOpen = false"
+                            class="cursor-pointer select-none"
                             >User
                             <img
+                                x-bind:class="dropdownOpen ? 'rotate-180 duration-300' : ''"
                                 class="w-6"
                                 src="https://img.icons8.com/ios-filled/50/777777/expand-arrow--v1.png"
                                 alt="expand-arrow--v1"
                             />
                         </a>
+                        <div
+                            x-show="dropdownOpen"
+                            x-cloak
+                            class="absolute right-0 z-20 w-40 rounded-lg bg-white p-2 text-gray-800 shadow"
+                            x-transition:enter="duration-300 ease-out"
+                            x-transition:enter-start="opacity-0 -translate-y-5 scale-90"
+                            x-transition:enter-end="opacity-100 translate-0 scale-100"
+                        >
+                            <ul class="hoverlist [&>li>a]:justify-end">
+                                <li><a href="">Profile</a></li>
+                                <li><a href="">Log Out</a></li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </nav>
@@ -125,11 +162,11 @@
                         /></a>
                     </figure>
                     <div class="p-2 px-4">
-                        <h2 class="mb-1 w-[60%] truncate text-sm text-gray-800">
-                            File_name
-                        </h2>
+                        <a class="mb-1 w-[60%] truncate text-sm text-gray-800">
+                            File Name
+                        </a>
                         <div
-                            class="mb-1 flex items-center gap-2 text-sm text-gray-800"
+                            class="flex items-center gap-2 text-sm text-gray-800"
                         >
                             <a
                                 class="rounded-full bg-gray-400 px-3 py-1 hover:bg-gray-600 hover:text-white"
@@ -154,7 +191,15 @@
                     </div>
                 </article>
             </main>
-            <aside class="col-span-1 mr-[20%] bg-red-400">Sidebar</aside>
+            <aside class="col-span-1 mr-[20%] bg-red-400">
+                <section class="card p-4">
+                    <h2>Actions</h2>
+                    <ul class="hoverlist">
+                        <li><a href="">Place Landmarks</a></li>
+                        <li><a href="">Identification</a></li>
+                    </ul>
+                </section>
+            </aside>
         </contet>
     </body>
 </html>
