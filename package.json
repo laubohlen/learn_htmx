@@ -1,7 +1,13 @@
 {
+    "scripts": {
+        "tailwind": "tailwind build -i tailwind/tailwind.css -o style.css --watch"
+    },
     "devDependencies": {
         "prettier": "^3.2.5",
         "prettier-plugin-tailwindcss": "^0.5.11",
         "tailwindcss": "^3.4.1"
+    },
+    "dependencies": {
+        "clean-css-cli": "^5.6.3"
     }
 }
